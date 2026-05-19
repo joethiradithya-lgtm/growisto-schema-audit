@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "{{ scraped.organization_name or 'REPLACE_ME_BUSINESS_NAME' }}",
+  "image": "{{ scraped.image or scraped.logo_url or 'REPLACE_ME_IMAGE_URL' }}",
+  "url": "{{ scraped.url }}",
+  "telephone": "{{ scraped.phone or 'REPLACE_ME_PHONE' }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "REPLACE_ME_STREET",
+    "addressLocality": "REPLACE_ME_CITY",
+    "addressRegion": "REPLACE_ME_REGION",
+    "postalCode": "REPLACE_ME_POSTCODE",
+    "addressCountry": "REPLACE_ME_COUNTRY_CODE"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "REPLACE_ME_LAT", "longitude": "REPLACE_ME_LNG" },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ]
+}

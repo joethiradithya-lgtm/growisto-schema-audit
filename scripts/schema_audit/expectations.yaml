@@ -1,0 +1,227 @@
+# expectations.yaml
+# Rule book for the schema-skill gap analyser.
+# For each page type, lists the schemas that SHOULD be on the page and
+# (for required schemas) the properties Google needs for rich-result eligibility.
+#
+# Edit this file when Google updates rich-result requirements; no code change needed.
+
+ecommerce:
+  homepage:
+    required:
+      - type: Organization
+        properties: [name, url, logo, sameAs]
+      - type: WebSite
+        properties: [url, potentialAction]   # potentialAction = SearchAction
+    recommended:
+      - type: ItemList
+        properties: [itemListElement]
+    notes:
+      - "Do NOT recommend BreadcrumbList on homepage."
+      - "Recommend LocalBusiness only if a physical address is signalled (contact page, store-locator)."
+
+  product:
+    required:
+      - type: Product
+        properties: [name, image, offers]
+      - type: Offer
+        properties: [price, priceCurrency, availability]
+    recommended:
+      - type: AggregateRating
+      - type: Review
+      - type: Brand
+      - type: BreadcrumbList
+
+  collection:
+    required:
+      - type: ItemList
+        properties: [itemListElement]
+      - type: BreadcrumbList
+        properties: [itemListElement]
+    recommended:
+      - type: CollectionPage
+      - type: WebPage
+
+  article:
+    required:
+      - type: Article
+        properties: [headline, datePublished, author, image, publisher]
+    recommended:
+      - type: BreadcrumbList
+
+  contact:
+    required:
+      - type: LocalBusiness
+        properties: [name, address, telephone, openingHours, geo]
+    recommended:
+      - type: AggregateRating
+
+  about:
+    required:
+      - type: Organization
+        properties: [name, url, logo, sameAs]
+    recommended:
+      - type: AboutPage
+
+saas:
+  homepage:
+    required:
+      - type: Organization
+        properties: [name, url, logo, sameAs]
+      - type: WebSite
+        properties: [url, potentialAction]
+    recommended:
+      - type: SoftwareApplication
+        properties: [name, applicationCategory]
+    notes:
+      - "Do NOT recommend BreadcrumbList on homepage."
+
+  feature:
+    required:
+      - type: WebPage
+      - type: SoftwareApplication
+        properties: [name, applicationCategory, operatingSystem]
+    recommended:
+      - type: BreadcrumbList
+      - type: AggregateRating
+
+  pricing:
+    required:
+      - type: SoftwareApplication
+        properties: [name, offers]
+      - type: Offer
+        properties: [price, priceCurrency]
+    recommended:
+      - type: AggregateOffer
+      - type: BreadcrumbList
+
+  integrations:
+    required:
+      - type: ItemList
+        properties: [itemListElement]
+      - type: WebPage
+    recommended:
+      - type: BreadcrumbList
+
+  case_study:
+    required:
+      - type: Article
+        properties: [headline, datePublished, author, about]
+    recommended:
+      - type: BreadcrumbList
+
+  docs:
+    required:
+      - type: TechArticle
+        properties: [headline, datePublished, author]
+    recommended:
+      - type: BreadcrumbList
+      - type: HowTo
+
+  article:
+    required:
+      - type: Article
+        properties: [headline, datePublished, author, image, publisher]
+    recommended:
+      - type: BreadcrumbList
+
+  contact:
+    required:
+      - type: Organization
+        properties: [name, contactPoint]
+    recommended: []
+
+  about:
+    required:
+      - type: Organization
+        properties: [name, url, logo, sameAs]
+    recommended:
+      - type: AboutPage
+
+# Cross-cutting page types — apply on both ecommerce AND saas sites.
+# (E.g. an e-com brand running a recipe blog, or a SaaS hosting webinars.)
+cross_cutting:
+  service:
+    required:
+      - type: Service
+        properties: [name, provider, areaServed, serviceType]
+      - type: Organization
+        properties: [name, url, logo]
+    recommended:
+      - type: AggregateRating
+      - type: BreadcrumbList
+
+  webinar:
+    required:
+      - type: Event
+        properties: [name, startDate, location, organizer]
+    recommended:
+      - type: VideoObject
+      - type: BreadcrumbList
+
+  job_posting:
+    required:
+      - type: JobPosting
+        properties: [title, description, datePosted, hiringOrganization, jobLocation]
+    recommended:
+      - type: BreadcrumbList
+
+  recipe:
+    required:
+      - type: Recipe
+        properties: [name, image, recipeIngredient, recipeInstructions, totalTime]
+    recommended:
+      - type: AggregateRating
+      - type: NutritionInformation
+      - type: BreadcrumbList
+
+  podcast:
+    required:
+      - type: PodcastEpisode
+        properties: [name, datePublished, partOfSeries]
+    recommended:
+      - type: BreadcrumbList
+
+  course:
+    required:
+      - type: Course
+        properties: [name, description, provider]
+    recommended:
+      - type: AggregateRating
+      - type: BreadcrumbList
+
+# Universal minimum — applied when page_type is 'other' OR when no specific
+# rules exist for the (site_type, page_type) pair. Better than returning empty.
+universal_minimum:
+  required:
+    - type: WebPage
+      properties: [name, url, description]
+    - type: Organization
+      properties: [name, url, logo]
+  recommended:
+    - type: BreadcrumbList
+
+# Universal overlay rules — applied AFTER the per-type matrix, regardless of site_type.
+universal_overlay:
+  - id: homepage_no_breadcrumb
+    description: "Homepage never needs BreadcrumbList. It is the root of the site."
+    rule: "If page_type == 'homepage', remove BreadcrumbList from missing/recommended list."
+
+  - id: faq_overlay
+    description: "Any page with an FAQ section should have FAQPage schema."
+    rule: "If has_faq_section is true and FAQPage not present, add FAQPage to recommended ([med]). If FAQ block dominates the page (>50% of main content), upgrade to [high]."
+
+  - id: no_carousel_type
+    description: "Schema.org has no Carousel type. Carousel rich results come from ItemList."
+    rule: "Never recommend Carousel."
+
+  - id: org_vs_localbusiness
+    description: "Organization and LocalBusiness are mutually compatible."
+    rule: "Recommend LocalBusiness only if physical-address signal detected (contact-page address, store-locator, opening hours element)."
+
+  - id: searchaction_homepage_only
+    description: "WebSite + SearchAction is meaningful only on the homepage."
+    rule: "Don't flag SearchAction as missing on inner pages."
+
+  - id: incomplete_over_missing
+    description: "If a required schema is present but missing required properties, mark INCOMPLETE not MISSING."
+    rule: "Status = INCOMPLETE [high], list the specific missing properties."

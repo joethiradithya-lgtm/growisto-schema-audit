@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "{{ scraped.title or 'REPLACE_ME_RECIPE_NAME' }}",
+  "image": ["{{ scraped.image or 'REPLACE_ME_IMAGE_URL' }}"],
+  "description": "{{ scraped.description or 'REPLACE_ME_DESCRIPTION' }}",
+  "author": { "@type": "Person", "name": "{{ scraped.author or 'REPLACE_ME_AUTHOR' }}" },
+  "datePublished": "{{ scraped.datePublished or 'REPLACE_ME_ISO_DATE' }}",
+  "prepTime": "PT15M",
+  "cookTime": "PT30M",
+  "totalTime": "PT45M",
+  "recipeYield": "REPLACE_ME_SERVINGS",
+  "recipeCategory": "REPLACE_ME_CATEGORY",
+  "recipeCuisine": "REPLACE_ME_CUISINE",
+  "recipeIngredient": [
+    "REPLACE_ME_INGREDIENT_1",
+    "REPLACE_ME_INGREDIENT_2",
+    "REPLACE_ME_INGREDIENT_3"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "REPLACE_ME_STEP_1" },
+    { "@type": "HowToStep", "text": "REPLACE_ME_STEP_2" },
+    { "@type": "HowToStep", "text": "REPLACE_ME_STEP_3" }
+  ]
+}

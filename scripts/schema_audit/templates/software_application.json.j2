@@ -1,0 +1,14 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "{{ scraped.title or scraped.organization_name or 'REPLACE_ME_APP_NAME' }}",
+  "operatingSystem": "Web",
+  "applicationCategory": "BusinessApplication",
+  "description": "{{ scraped.description or 'REPLACE_ME_DESCRIPTION' }}",
+  "url": "{{ scraped.url }}",
+  "offers": {
+    "@type": "Offer",
+    "price": "{{ scraped.price or 'REPLACE_ME_PRICE' }}",
+    "priceCurrency": "{{ scraped.currency or 'USD' }}"
+  }
+}

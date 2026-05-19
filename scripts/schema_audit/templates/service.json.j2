@@ -1,0 +1,14 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{ scraped.title or 'REPLACE_ME_SERVICE_NAME' }}",
+  "description": "{{ scraped.description or 'REPLACE_ME_DESCRIPTION' }}",
+  "provider": {
+    "@type": "Organization",
+    "name": "{{ scraped.organization_name or 'REPLACE_ME_PROVIDER_NAME' }}",
+    "url": "{{ scraped.url.split('://')[0] }}://{{ scraped.url.split('://')[1].split('/')[0] }}/"
+  },
+  "areaServed": "REPLACE_ME_GEO_AREA",
+  "serviceType": "REPLACE_ME_SERVICE_CATEGORY",
+  "url": "{{ scraped.url }}"
+}

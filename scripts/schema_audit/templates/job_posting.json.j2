@@ -1,0 +1,34 @@
+{
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": "{{ scraped.title or 'REPLACE_ME_JOB_TITLE' }}",
+  "description": "{{ scraped.description or 'REPLACE_ME_JOB_DESCRIPTION' }}",
+  "datePosted": "{{ scraped.datePublished or 'REPLACE_ME_ISO_DATE' }}",
+  "validThrough": "REPLACE_ME_ISO_DATE",
+  "employmentType": "FULL_TIME",
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": "{{ scraped.organization_name or 'REPLACE_ME_ORG' }}",
+    "sameAs": "{{ scraped.url.split('://')[0] }}://{{ scraped.url.split('://')[1].split('/')[0] }}/",
+    "logo": "{{ scraped.logo_url or 'REPLACE_ME_LOGO_URL' }}"
+  },
+  "jobLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "REPLACE_ME_CITY",
+      "addressRegion": "REPLACE_ME_REGION",
+      "addressCountry": "REPLACE_ME_COUNTRY_CODE"
+    }
+  },
+  "baseSalary": {
+    "@type": "MonetaryAmount",
+    "currency": "{{ scraped.currency or 'USD' }}",
+    "value": {
+      "@type": "QuantitativeValue",
+      "minValue": "REPLACE_ME_MIN_SALARY",
+      "maxValue": "REPLACE_ME_MAX_SALARY",
+      "unitText": "YEAR"
+    }
+  }
+}

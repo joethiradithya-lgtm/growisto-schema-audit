@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "{{ scraped.headline or scraped.title or 'REPLACE_ME_HOWTO_TITLE' }}",
+  "description": "{{ scraped.description or 'REPLACE_ME_DESCRIPTION' }}",
+  "totalTime": "PT15M",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "REPLACE_ME_STEP_1_NAME", "text": "REPLACE_ME_STEP_1_TEXT" },
+    { "@type": "HowToStep", "position": 2, "name": "REPLACE_ME_STEP_2_NAME", "text": "REPLACE_ME_STEP_2_TEXT" },
+    { "@type": "HowToStep", "position": 3, "name": "REPLACE_ME_STEP_3_NAME", "text": "REPLACE_ME_STEP_3_TEXT" }
+  ]
+}

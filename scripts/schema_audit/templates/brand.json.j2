@@ -1,0 +1,7 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Brand",
+  "name": "{{ scraped.organization_name or 'REPLACE_ME_BRAND_NAME' }}",
+  "url": "{{ scraped.url.split('://')[0] }}://{{ scraped.url.split('://')[1].split('/')[0] }}/",
+  "logo": "{{ scraped.logo_url or 'REPLACE_ME_LOGO_URL' }}"
+}

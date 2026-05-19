@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ scraped.url.split('://')[0] }}://{{ scraped.url.split('://')[1].split('/')[0] }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "REPLACE_ME_PARENT_CATEGORY",
+      "item": "REPLACE_ME_PARENT_URL"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ scraped.title or 'REPLACE_ME_CURRENT_PAGE_NAME' }}",
+      "item": "{{ scraped.url }}"
+    }
+  ]
+}

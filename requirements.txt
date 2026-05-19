@@ -1,0 +1,10 @@
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+openpyxl>=3.1.0
+pyyaml>=6.0
+jinja2>=3.1.0
+
+# Optional: for JS-rendered sites (React / Next.js / Vue SPAs)
+# Uncomment + run `playwright install chromium` after pip install if needed.
+# playwright>=1.40.0

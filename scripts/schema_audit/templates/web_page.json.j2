@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ scraped.title or 'REPLACE_ME_PAGE_NAME' }}",
+  "description": "{{ scraped.description or 'REPLACE_ME_DESCRIPTION' }}",
+  "url": "{{ scraped.url }}",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "{{ scraped.organization_name or 'REPLACE_ME_SITE' }}",
+    "url": "{{ scraped.url.split('://')[0] }}://{{ scraped.url.split('://')[1].split('/')[0] }}/"
+  }
+}

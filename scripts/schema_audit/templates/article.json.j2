@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ scraped.headline or scraped.title or 'REPLACE_ME_HEADLINE' }}",
+  "image": ["{{ scraped.image or 'REPLACE_ME_IMAGE_URL' }}"],
+  "datePublished": "{{ scraped.datePublished or 'REPLACE_ME_ISO_DATE' }}",
+  "dateModified": "{{ scraped.datePublished or 'REPLACE_ME_ISO_DATE' }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ scraped.author or 'REPLACE_ME_AUTHOR_NAME' }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ scraped.organization_name or 'REPLACE_ME_ORG_NAME' }}",
+    "logo": { "@type": "ImageObject", "url": "{{ scraped.logo_url or 'REPLACE_ME_LOGO_URL' }}" }
+  },
+  "mainEntityOfPage": "{{ scraped.url }}"
+}

@@ -1,0 +1,13 @@
+{
+  "@context": "https://schema.org",
+  "@type": "AggregateOffer",
+  "url": "{{ scraped.url }}",
+  "priceCurrency": "{{ scraped.currency or 'USD' }}",
+  "lowPrice": "REPLACE_ME_LOW_PRICE",
+  "highPrice": "REPLACE_ME_HIGH_PRICE",
+  "offerCount": "REPLACE_ME_TIER_COUNT",
+  "offers": [
+    { "@type": "Offer", "name": "REPLACE_ME_TIER_1_NAME", "price": "REPLACE_ME_TIER_1_PRICE", "priceCurrency": "{{ scraped.currency or 'USD' }}" },
+    { "@type": "Offer", "name": "REPLACE_ME_TIER_2_NAME", "price": "REPLACE_ME_TIER_2_PRICE", "priceCurrency": "{{ scraped.currency or 'USD' }}" }
+  ]
+}

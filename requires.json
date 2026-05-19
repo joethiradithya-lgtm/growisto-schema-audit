@@ -1,0 +1,18 @@
+{
+  "runtime_credentials": false,
+  "permissions": {
+    "allow_bash": [
+      "python3 scripts/schema_audit/run.py *",
+      "python3 -m pip install -r requirements.txt",
+      "playwright install chromium",
+      "cat *",
+      "ls *"
+    ],
+    "deny_bash": [
+      "rm -rf *"
+    ]
+  },
+  "mcps": [],
+  "credentials": [],
+  "notes": "Plugin makes outbound HTTP/HTTPS GET requests only to the user-provided URLs. No API keys, no MCP servers, no LLM API calls. Pure crawling + parsing + Jinja2 template rendering via requests + beautifulsoup4 + lxml + openpyxl + pyyaml + jinja2. Playwright is OPTIONAL — install separately for JS-rendered SPA support (300MB+ Chromium binary)."
+}

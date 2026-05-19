@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "PodcastEpisode",
+  "name": "{{ scraped.title or 'REPLACE_ME_EPISODE_TITLE' }}",
+  "description": "{{ scraped.description or 'REPLACE_ME_DESCRIPTION' }}",
+  "url": "{{ scraped.url }}",
+  "datePublished": "{{ scraped.datePublished or 'REPLACE_ME_ISO_DATE' }}",
+  "duration": "REPLACE_ME_DURATION_ISO8601",
+  "associatedMedia": {
+    "@type": "MediaObject",
+    "contentUrl": "REPLACE_ME_AUDIO_URL"
+  },
+  "partOfSeries": {
+    "@type": "PodcastSeries",
+    "name": "{{ scraped.organization_name or 'REPLACE_ME_PODCAST_NAME' }}",
+    "url": "{{ scraped.url.split('://')[0] }}://{{ scraped.url.split('://')[1].split('/')[0] }}/"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "{{ scraped.headline or scraped.title or 'REPLACE_ME_HEADLINE' }}",
+  "description": "{{ scraped.description or 'REPLACE_ME_DESCRIPTION' }}",
+  "datePublished": "{{ scraped.datePublished or 'REPLACE_ME_ISO_DATE' }}",
+  "dateModified": "{{ scraped.datePublished or 'REPLACE_ME_ISO_DATE' }}",
+  "author": { "@type": "Person", "name": "{{ scraped.author or 'REPLACE_ME_AUTHOR' }}" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ scraped.organization_name or 'REPLACE_ME_ORG' }}",
+    "logo": { "@type": "ImageObject", "url": "{{ scraped.logo_url or 'REPLACE_ME_LOGO' }}" }
+  },
+  "mainEntityOfPage": "{{ scraped.url }}",
+  "proficiencyLevel": "Beginner",
+  "dependencies": "REPLACE_ME_DEPENDENCIES"
+}

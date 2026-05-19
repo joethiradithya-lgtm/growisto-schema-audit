@@ -1,0 +1,21 @@
+{
+  "name": "growisto-schema-audit",
+  "version": "0.1.0",
+  "description": "Audit + generate schema.org markup for any URL. Crawls each page, detects existing JSON-LD/microdata/RDFa, classifies page type (product/article/pricing/etc.), checks against per-page-type expectations (sourced from a tunable YAML rulebook), and produces an Excel report listing schemas present, schemas missing or incomplete (with HIGH/MED/LOW priority), and paste-ready JSON-LD code templates for every gap. 26 schema types supported including Product, Article, FAQPage, Organization, BreadcrumbList, LocalBusiness, HowTo, Recipe, Event, SoftwareApplication. No LLM API calls — pure deterministic Python + Jinja2 templates. Optional Playwright support for JS-rendered sites (install separately).",
+  "author": {
+    "name": "Growisto SEO Team",
+    "email": "claudeforseo@growisto.com"
+  },
+  "homepage": "https://github.com/joethiradithya-lgtm/growisto-schema-audit",
+  "repository": "https://github.com/joethiradithya-lgtm/growisto-schema-audit",
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "schema",
+    "schema-org",
+    "json-ld",
+    "structured-data",
+    "rich-results",
+    "growisto"
+  ]
+}

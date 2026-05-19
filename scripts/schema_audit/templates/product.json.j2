@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ scraped.title or 'REPLACE_ME_PRODUCT_NAME' }}",
+  "description": "{{ scraped.description or 'REPLACE_ME_DESCRIPTION' }}",
+  "image": "{{ scraped.image or 'REPLACE_ME_IMAGE_URL' }}",
+  "sku": "REPLACE_ME_SKU",
+  "brand": {
+    "@type": "Brand",
+    "name": "{{ scraped.organization_name or 'REPLACE_ME_BRAND' }}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ scraped.url }}",
+    "price": "{{ scraped.price or 'REPLACE_ME_PRICE' }}",
+    "priceCurrency": "{{ scraped.currency or 'REPLACE_ME_CURRENCY' }}",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+}
