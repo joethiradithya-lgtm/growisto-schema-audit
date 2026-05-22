@@ -141,7 +141,7 @@ def parse_args() -> tuple[list[str], Path, Path | None]:
     ap.add_argument("--file", type=Path, help="Path to a .txt or .csv file with one URL per line.")
     ap.add_argument("--out", type=Path, default=HERE / "results.json", help="Output JSON path.")
     ap.add_argument("--xlsx", type=Path, default=None,
-                    help="Custom Excel output path (default: schema-audit-<date>.xlsx next to script).")
+                    help="Custom Excel output path (default: <plugin>/Outputs/schema-audit-<date>.xlsx).")
     args = ap.parse_args()
 
     urls: list[str] = list(args.urls)

@@ -18,7 +18,7 @@ You help the user audit schema.org structured data on one or more pages and prod
 ## Inputs you need from the user
 
 1. **One or more URLs** — comma-separated, newline-separated, OR a file path (`.txt` / `.csv` with one URL per line)
-2. **Output Excel path** (optional) — where to write the result. If not specified, default to `<cwd>/schema-audit-<date>.xlsx`
+2. **Output Excel path** (optional) — where to write the result. **Default: `Outputs/schema-audit-<date>.xlsx`** inside the plugin folder (the `Outputs/` directory exists for this purpose). Only override if the user explicitly asks for a different location.
 
 If only a domain is given (no specific URLs), ask the user which pages they want audited. The plugin works best with a hand-picked list of representative pages (e.g. homepage + 2-3 product pages + 1 category page + 1 article + 1 about page) — not a full site crawl.
 

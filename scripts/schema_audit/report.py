@@ -1,7 +1,7 @@
 """
 report.py — render results.json into an Excel workbook.
 
-Output: outputs/schema-audit-<date>.xlsx with columns:
+Output: Outputs/schema-audit-<date>.xlsx with columns:
     A — Page URL
     B — Schemas Present       (one per line, in-cell newlines)
     C — Schemas Missing/Incomplete  (one per line, priority-tagged)
@@ -24,7 +24,9 @@ from openpyxl.styles import Alignment, Font, PatternFill
 
 
 HERE = Path(__file__).parent
-OUT_DIR = HERE / "outputs"
+# Default outputs go to the plugin's top-level Outputs/ folder
+# (HERE is scripts/schema_audit/, so we navigate up twice to plugin root)
+OUT_DIR = HERE.parent.parent / "Outputs"
 DIVIDER = "\n\n———\n\n"
 
 

@@ -10,7 +10,12 @@ venv/
 env/
 ENV/
 
-# Plugin output (XLSX from real audits are user data, not committed)
+# Plugin outputs — generated files go into Outputs/ (folder tracked via .gitkeep,
+# contents gitignored so generated XLSX/CSV/JSON files never get committed).
+Outputs/*
+!Outputs/.gitkeep
+
+# Legacy: any output folder elsewhere + XLSX/results.json anywhere else
 output/
 *.xlsx
 results.json
