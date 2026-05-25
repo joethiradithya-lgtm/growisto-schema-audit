@@ -1,6 +1,6 @@
 ---
 name: schema-audit
-version: "0.1.0"
+version: "0.2.0"
 description: Audit and generate schema.org markup for one or more URLs. Crawls each page, detects existing JSON-LD / microdata / RDFa, classifies page type, checks against an expectations rulebook (per page type), and produces an Excel report listing schemas present, schemas missing or incomplete with HIGH/MED/LOW priority, and paste-ready JSON-LD code templates for every gap. 26 schema types covered. Use this skill whenever the user asks to audit schema, find missing schema markup, generate schema for a page, check structured data, run a JSON-LD audit, identify rich result opportunities, or get paste-ready schema code. Also trigger when the user provides one or more URLs and mentions schema, structured data, JSON-LD, or rich results.
 trigger: "audit schema for"
 tags:
@@ -8,6 +8,8 @@ tags:
   - schema
   - structured-data
   - json-ld
+category: seo
+feedback_path: feedback/
 output_format: "Excel (.xlsx) with 4 columns — Page URL, Schemas Present, Schemas Missing/Incomplete (with priority), JSON-LD Templates (paste-ready)"
 ---
 
@@ -31,7 +33,7 @@ From the plugin root, run:
 ```bash
 python3 scripts/schema_audit/run.py \
   <url1> <url2> ... \
-  --out /tmp/schema_audit_results.json \
+  --out Outputs/schema_audit_results.json \
   --xlsx "<output.xlsx>"
 ```
 
@@ -40,7 +42,7 @@ OR for a file of URLs:
 ```bash
 python3 scripts/schema_audit/run.py \
   --file <urls.txt> \
-  --out /tmp/schema_audit_results.json \
+  --out Outputs/schema_audit_results.json \
   --xlsx "<output.xlsx>"
 ```
 
@@ -58,7 +60,7 @@ Echo per-URL progress to the user as the script runs (it prints `[1/N] <url>` pe
 
 ### Step 2 — Report briefly
 
-Once the Excel is written, read the JSON results from `/tmp/schema_audit_results.json` and tell the user:
+Once the Excel is written, read the JSON results from `Outputs/schema_audit_results.json` and tell the user:
 
 - How many URLs were audited
 - Aggregate stats: total HIGH-priority gaps across all pages, total INCOMPLETE schemas, any URLs that errored

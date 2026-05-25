@@ -107,7 +107,7 @@ python3 scripts/schema_audit/run.py https://example.com \
 
 # Custom JSON results path
 python3 scripts/schema_audit/run.py https://example.com \
-  --out /tmp/results.json \
+  --out Outputs/results.json \
   --xlsx ~/Downloads/audit.xlsx
 ```
 
