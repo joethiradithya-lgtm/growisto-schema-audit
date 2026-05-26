@@ -33,8 +33,8 @@ From the plugin root, run:
 ```bash
 python3 scripts/schema_audit/run.py \
   <url1> <url2> ... \
-  --out Outputs/schema_audit_results.json \
-  --xlsx "<output.xlsx>"
+  --out .work/schema_audit_results.json \
+  --xlsx "Outputs/<output.xlsx>"
 ```
 
 OR for a file of URLs:
@@ -42,8 +42,8 @@ OR for a file of URLs:
 ```bash
 python3 scripts/schema_audit/run.py \
   --file <urls.txt> \
-  --out Outputs/schema_audit_results.json \
-  --xlsx "<output.xlsx>"
+  --out .work/schema_audit_results.json \
+  --xlsx "Outputs/<output.xlsx>"
 ```
 
 This will:
@@ -60,7 +60,7 @@ Echo per-URL progress to the user as the script runs (it prints `[1/N] <url>` pe
 
 ### Step 2 — Report briefly
 
-Once the Excel is written, read the JSON results from `Outputs/schema_audit_results.json` and tell the user:
+Once the Excel is written, read the JSON results from `.work/schema_audit_results.json` and tell the user:
 
 - How many URLs were audited
 - Aggregate stats: total HIGH-priority gaps across all pages, total INCOMPLETE schemas, any URLs that errored
